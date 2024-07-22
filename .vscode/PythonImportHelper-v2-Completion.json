@@ -1,0 +1,124 @@
+[
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "find_packages",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "setup",
+        "importPath": "setuptools",
+        "description": "setuptools",
+        "isExtraImport": true,
+        "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "customException",
+        "kind": 6,
+        "importPath": "source.exception",
+        "description": "source.exception",
+        "peekOfCode": "class customException(Exception):\n    def __init__(self,error_message,error_detail:sys):\n        super().__init__(error_message)\n        self.error_message = error_message_detail(error_message,error_detail=error_detail)\n    def __str__(self):\n        return self.error_message",
+        "detail": "source.exception",
+        "documentation": {}
+    },
+    {
+        "label": "error_message_detail",
+        "kind": 2,
+        "importPath": "source.exception",
+        "description": "source.exception",
+        "peekOfCode": "def error_message_detail(error,error_detail:sys):\n    _,_,exc_tb=error_detail.exc_info()\n    file_name = exc_tb.tb_frame.f_code.co_filename\n    error_message = \"error occured in python script name [{0}] line number [{1}] error message [{2}]\".format(\n        file_name,exc_tb.tb_lineno,str(error)\n    )\n    return error_message\nclass customException(Exception):\n    def __init__(self,error_message,error_detail:sys):\n        super().__init__(error_message)",
+        "detail": "source.exception",
+        "documentation": {}
+    },
+    {
+        "label": "Log_File",
+        "kind": 5,
+        "importPath": "source.logger",
+        "description": "source.logger",
+        "peekOfCode": "Log_File = f\"{datetime.now().strftime('%m_%d_%y_%H_%M_%S')}.log\"\nlogs_path = os.path.join(os.getcwd(),\"logs\",Log_File)\nos.makedirs(logs_path,exist_ok=True)\nLOG_FILE_PATH = os.path.join(logs_path,Log_File)\nlogging.basicConfig(\n    filename=LOG_FILE_PATH,\n    format=\"[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s\",\n    level=logging.INFO,\n)",
+        "detail": "source.logger",
+        "documentation": {}
+    },
+    {
+        "label": "logs_path",
+        "kind": 5,
+        "importPath": "source.logger",
+        "description": "source.logger",
+        "peekOfCode": "logs_path = os.path.join(os.getcwd(),\"logs\",Log_File)\nos.makedirs(logs_path,exist_ok=True)\nLOG_FILE_PATH = os.path.join(logs_path,Log_File)\nlogging.basicConfig(\n    filename=LOG_FILE_PATH,\n    format=\"[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s\",\n    level=logging.INFO,\n)",
+        "detail": "source.logger",
+        "documentation": {}
+    },
+    {
+        "label": "LOG_FILE_PATH",
+        "kind": 5,
+        "importPath": "source.logger",
+        "description": "source.logger",
+        "peekOfCode": "LOG_FILE_PATH = os.path.join(logs_path,Log_File)\nlogging.basicConfig(\n    filename=LOG_FILE_PATH,\n    format=\"[ %(asctime)s ] %(lineno)d %(name)s - %(levelname)s - %(message)s\",\n    level=logging.INFO,\n)",
+        "detail": "source.logger",
+        "documentation": {}
+    },
+    {
+        "label": "get_requirements",
+        "kind": 2,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "def get_requirements(file_path:str) -> List[str]:\n    '''\n    this function will return list of requirements\n    '''\n    requirement = []\n    with open(file_path) as obj:\n        requirements = obj.readlines()\n        requirements  = [req.replace('/n',' ') for req in requirements]\n        if h_e_d in requirements:\n            requirements.remove(h_e_d)",
+        "detail": "setup",
+        "documentation": {}
+    },
+    {
+        "label": "h_e_d",
+        "kind": 5,
+        "importPath": "setup",
+        "description": "setup",
+        "peekOfCode": "h_e_d = '-e.'\nglobal get_requiremnets\ndef get_requirements(file_path:str) -> List[str]:\n    '''\n    this function will return list of requirements\n    '''\n    requirement = []\n    with open(file_path) as obj:\n        requirements = obj.readlines()\n        requirements  = [req.replace('/n',' ') for req in requirements]",
+        "detail": "setup",
+        "documentation": {}
+    }
+]
